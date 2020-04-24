@@ -28,19 +28,19 @@ elements:
     display-name: '&aGeri Dön'
     lore:
       - ''
-      - '&e&nGeri dönmek için tıkla!'
+      - '&e&nGeri Dönmek İçin Tıkla!'
   yetkili-olmayan-element:
     material: PLAYER_HEAD
     display-name: '&cBoş'
     lore:
-      - '&7Yetkili eklemek için tıkla!'
+      - '&7Yetkili Eklemek İçin Tıkla!'
   yetkili-olan-element:
     material: PLAYER_HEAD
     display-name: '&a%player%'
     lore:
       - ''
       - '&7Durum: &a✔ %durum%!'
-      - '&7Son görülme: &a%son-oyuna-giris-tarihi%'
+      - '&7Son Görülme: &a%son-oyuna-giris-tarihi%'
       - '&7Eklenme Tarihi: &a%eklenme-tarihi%'
       - ''
-      - '&aYetkili çıkarmak için tıklayın!'
+      - '&aYetkiliyi Çıkarmak İçin Tıklayın!'

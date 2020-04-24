@@ -21,10 +21,10 @@ elements:
     display-name: '&bSpawner Ayarları'
     lore:
       - ''
-      - '&7Açtığınız spawnera özel'
-      - '&7ayar yapabilirsin.'
+      - '&7Açtığınız Spawnera Özel'
+      - '&7Ayar Yapabilirsin.'
       - ''
-      - '&aAçmak için tıklayın!'
+      - '&aAçmak İçin Tıklayın!'
   general-settings-element:
     x: 4
     y: 0
@@ -32,10 +32,10 @@ elements:
     display-name: '&5Genel Ayarlar'
     lore:
       - ''
-      - '&7Sahip olduğunuz tüm'
-      - '&7spawnerların ayarını değiştirir'
+      - '&7Sahip Olduğunuz Tüm'
+      - '&7Spawnerların Ayarını Değiştirir'
       - ''
-      - '&7Açmak için tıklayın!'
+      - '&7Açmak İçin Tıklayın!'
   sell-element:
     x: 8
     y: 0
@@ -43,13 +43,13 @@ elements:
     display-name: '&aKazanılan Ganimet'
     lore:
       - ''
-      - '&7Açtığın spawnerın içinde'
-      - '&7bulunan ganimetleri satabilirsin'
+      - '&7Açtığın Spawnerın İçinde'
+      - '&7Bulunan Ganimetleri Satabilirsin'
       - ''
       - '&7·Durum: %durum%'
       - '&7·Kazanılacak Para: &a%money%$'
       - ''
-      - '&eSatmak için tıklayın'
+      - '&eSatmak İçin Tıklayın'
 
 sell-element-durum-1: '&cBoş'
 sell-element-durum-2: '&a%amount% %spawner-name%'

@@ -30,19 +30,19 @@ panes:
 
 elements:
   ganimet-element:
-    # buraya ne yazdığın önemsiz
+
     material: GRASS
     display-name: '&a%chest-name% Deposu'
     lore:
       - ''
-      - '&7Toplam %chest-amount% tane'
-      - '&7%chest-name% spawnerınız var.'
+      - '&7Toplam %chest-amount% Tane'
+      - '&7%chest-name% Spawnerınız Var.'
       - ''
-      - '&7·Depoda ki miktar: &a%drop-amount%'
-      - '&7·Alınabilicek miktar: &a%available-amount% &7(&fShift + Sağ Tık&7)'
+      - '&7·Depodaki Miktar: &a%drop-amount%'
+      - '&7·Alınabilecek Miktar: &a%available-amount% &7(&fShift + Sağ Tık&7)'
       - ''
-      - '&aAlmak için sağ tıklayın!'
-      - '&aSatmak için farenizin orta tuşuna tıklayın!'
+      - '&aAlmak İçin Sağ Tıklayın!'
+      - '&aSatmak İçin Farenizin Orta Tuşuna Tıklayın!'
   back-element:
     x: 4
     y: 0
@@ -50,4 +50,4 @@ elements:
     display-name: '&aGeri Dön'
     lore:
       - ''
-      - '&e&nGeri dönmek için tıkla!'
+      - '&e&nGeri Dönmek İçin Tıkla!'

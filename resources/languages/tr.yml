@@ -4,11 +4,11 @@ error:
   your-inventory-is-full: '&eSandıkSpawner &8&l> &cEnvanterin Dolu!'
   player-inventory-is-full: '&eSandıkSpawner &8&l> &b%player% &cAdlı Oyuncunun Envanteri Dolu!'
   input-number: '&eSandıkSpawner &8&l> &cLütfen Sayı Girin!'
-  player-not-found: '&eSandıkSpawner &8&l> &cOyuncu Bulunamadı!'
+  player-not-found: '&cOyuncu Bulunamadı!'
   in-game-command: '&eSandıkSpawner &8&l> &cBu Komut Sadece Oyundayken Aktif Olur!'
   you-cant-take-this-so-much: '&eSandıkSpawner &8&l> &cBu Kadar Fazla Alamazsın!'
-  you-cant-add-yourself: '&eSandıkSpawner &8&l> &cKendini Ekleyemezsin!'
-  player-already-added: '&eSandıkSpawner &8&l> &b%player% &cAdlı Oyuncu Zaten Ekli!'
+  you-cant-add-yourself: '&cKendini Ekleyemezsin!'
+  player-already-added: '&b%player% &cZaten Ekli!'
   not-enough-item: '&eSandıkSpawner &8&l> &cSeviye Yükseltmek İçin Yeterli Eşyan Yok!'
 
 general:
@@ -16,7 +16,7 @@ general:
   you-took-a-spawner: '&eSandıkSpawner &8&l> &b%spawner% &eSpawnerından Aldın!'
   you-place-a-chest-spawner: '&eSandıkSpawner &8&l> &eYerleştirilen Spawner: &b%spawner%'
   you-break-a-chest-spawner: '&eSandıkSpawner &8&l> &eKırılan Spawner: &b%spawner%'
-  player-added: '&eSandıkSpawner &8&l> &eEklenen Oyuncu: &b%player%'
+  player-added: '&eEklenen Oyuncu: &b%player%'
   reload-complete: '&eSandıkSpawner &8&l> &aSpawner Eklentisi Yenilendi!'
 
 command:

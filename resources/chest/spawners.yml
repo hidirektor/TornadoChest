@@ -1,5 +1,5 @@
-iron_block:
-  name: 'Iron Blok'
+Demir:
+  name: 'Demir'
   money: 50
   level-1:
     speed: 12
@@ -17,4 +17,4 @@ iron_block:
     speed: 4
     amount: 1
   item:
-    material: IRON_BLOCK
+    material: IRON_INGOT

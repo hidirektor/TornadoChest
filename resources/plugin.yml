@@ -1,6 +1,6 @@
 name: SandikSpawner
 version: 24.04.2020
-main: io.github.portlek.spawner.Spawner
+main: com.infumia.t3sl4.sandikspawner.SandikSpawner
 authors: [SYN_T3SL4]
 depend:
   - Vault
