@@ -1,0 +1,27 @@
+# en, tr
+language: 'tr'
+
+chest-spawner:
+  sign:
+    - '&4%chest-name%'
+    - '&c&l%chest-owner%'
+    - '&d&l%chest-level%. Seviye'
+    - '&b&lDurum: &9&l%durum%'
+  chest-item:
+    material: CHEST
+    display-name: '&a%chest-name% &fSpawner &e(%chest-level%. Seviye)'
+  ganimet-anvil-alis: 'Miktarı yaz'
+  ganimet-anvil-satis: 'Miktarı yaz'
+  yetkili-anvil: 'Oyuncuyu yaz'
+  book:
+    - '     &lUYARI     '
+    - 'Ganimetleri satmak'
+    - 'istiyor musunuz?'
+    - ''
+    - 'Satılacak Miktar (&a%amount%&0)'
+    - ''
+    - 'Kazanılıcak Miktar: (&a%money%&0)'
+    - ''
+    - '%yesno%'
+  clickyes: '   &a&l[✔]   '
+  clickno: '   &c&l[×]   '
