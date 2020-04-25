@@ -3,7 +3,7 @@ package com.infumia.t3sl4.sandikspawner.command;
 import com.infumia.t3sl4.sandikspawner.SpawnerAPI;
 import com.infumia.t3sl4.sandikspawner.chest.placed.ChestPlaced;
 import com.infumia.t3sl4.sandikspawner.chest.type.ChestType;
-import com.infumia.t3sl4.sandikspawner.menu.chest.GenelAyarlarMenu;
+import com.infumia.t3sl4.sandikspawner.menu.GenelAyarlarMenu;
 import com.infumia.t3sl4.sandikspawner.util.Util;
 import java.util.Iterator;
 import java.util.List;

@@ -1,20 +1,20 @@
 package com.infumia.t3sl4.sandikspawner;
 
+import com.infumia.t3sl4.sandikspawner.listener.*;
 import io.github.portlek.inventory.Inventories;
 import io.github.portlek.mcyaml.YamlOf;
 import com.infumia.t3sl4.sandikspawner.command.CommandChestSpawner;
 import com.infumia.t3sl4.sandikspawner.files.ConfigOptions;
 import com.infumia.t3sl4.sandikspawner.hook.VaultHook;
 import com.infumia.t3sl4.sandikspawner.hook.VaultWrapper;
-import com.infumia.t3sl4.sandikspawner.chest.ChestBreak;
-import com.infumia.t3sl4.sandikspawner.chest.ChestClick;
-import com.infumia.t3sl4.sandikspawner.chest.ChestPlace;
-import com.infumia.t3sl4.sandikspawner.chest.SignBreak;
-import com.infumia.t3sl4.sandikspawner.chest.SignClick;
 import com.infumia.t3sl4.sandikspawner.chest.placed.ChestPlaced;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.cactoos.list.ListOf;
 
@@ -39,7 +39,7 @@ public final class SandikSpawner extends JavaPlugin {
                }, 0L, 20L);
                spawnerAPI.reloadPlugin();
                (new Inventories()).prepareFor(this);
-               (new ListOf(new Listener[]{new ChestClick(spawnerAPI), new ChestBreak(spawnerAPI), new ChestPlace(spawnerAPI), new SignClick(spawnerAPI), new SignBreak(spawnerAPI)})).forEach((listener) -> {
+               (new ListOf(new Listener[]{new ChestControl(spawnerAPI), new ChestClick(spawnerAPI), new ChestBreak(spawnerAPI), new ChestPlace(spawnerAPI), new SignClick(spawnerAPI), new SignBreak(spawnerAPI)})).forEach((listener) -> {
                   this.getServer().getPluginManager().registerEvents((Listener) listener, this);
                });
                CommandChestSpawner commandChestSpawner = new CommandChestSpawner(spawnerAPI);
@@ -49,4 +49,5 @@ public final class SandikSpawner extends JavaPlugin {
          }
       }
    }
+
 }

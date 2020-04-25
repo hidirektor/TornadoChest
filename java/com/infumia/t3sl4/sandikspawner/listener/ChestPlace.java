@@ -1,5 +1,7 @@
-package com.infumia.t3sl4.sandikspawner.chest;
+package com.infumia.t3sl4.sandikspawner.listener;
 
+import com.infumia.t3sl4.util.location.StringOf;
+import io.github.portlek.mcyaml.IYaml;
 import io.github.portlek.nbt.base.ItemStackNBTOf;
 import com.infumia.t3sl4.sandikspawner.SpawnerAPI;
 import com.infumia.t3sl4.sandikspawner.mock.MckChestType;
@@ -7,7 +9,10 @@ import com.infumia.t3sl4.sandikspawner.chest.placed.ChestPlaced;
 import com.infumia.t3sl4.sandikspawner.chest.type.ChestType;
 import com.infumia.t3sl4.sandikspawner.util.Util;
 import io.github.portlek.versionmatched.Version;
+import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockState;
 import org.bukkit.block.Chest;
 import org.bukkit.block.Sign;
 import org.bukkit.block.data.Directional;
@@ -47,6 +52,7 @@ public final class ChestPlace implements Listener {
          event.setCancelled(true);
          return;
       }
+
 
       final Chest chest = (Chest) block.getState();
       final Block signBlock;
@@ -89,6 +95,8 @@ public final class ChestPlace implements Listener {
               )
       );
       event.getPlayer().sendMessage(spawnerAPI.getLanguage().generalYouPlaceAChestSpawner(chestType.getName()));
+      final Location blockLocation = new Location(block.getWorld(), block.getX(), block.getY(), block.getZ());
+      event.getPlayer().sendMessage("Blok X: " + blockLocation.getBlockX());
    }
 
    private boolean check(@NotNull Block block) {

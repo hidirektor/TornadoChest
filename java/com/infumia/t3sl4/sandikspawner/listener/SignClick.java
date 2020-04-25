@@ -1,9 +1,9 @@
-package com.infumia.t3sl4.sandikspawner.chest;
+package com.infumia.t3sl4.sandikspawner.listener;
 
 import com.infumia.t3sl4.sandikspawner.SpawnerAPI;
 import com.infumia.t3sl4.sandikspawner.chest.placed.ChestPlaced;
 import com.infumia.t3sl4.sandikspawner.chest.user.User;
-import com.infumia.t3sl4.sandikspawner.menu.chest.ChestSettingsMenu;
+import com.infumia.t3sl4.sandikspawner.menu.ChestSettingsMenu;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.Sign;

@@ -11,8 +11,11 @@ import java.util.UUID;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
 import org.bukkit.block.Sign;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitTask;
@@ -30,7 +33,7 @@ public final class ChestPlaced {
    @NotNull
    public final UUID owner;
    @NotNull
-   public final Chest chest;
+   public static Chest chest;
    @NotNull
    public final Sign sign;
    @NotNull

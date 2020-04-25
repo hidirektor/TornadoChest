@@ -1,4 +1,4 @@
-package com.infumia.t3sl4.sandikspawner.menu.chest;
+package com.infumia.t3sl4.sandikspawner.menu;
 
 import io.github.portlek.inventory.Element;
 import io.github.portlek.inventory.Pane;
@@ -14,7 +14,6 @@ import io.github.portlek.inventory.target.ClickTarget;
 import io.github.portlek.inventory.target.DragTarget;
 import io.github.portlek.itemstack.util.Colored;
 import io.github.portlek.mcyaml.IYaml;
-import com.infumia.t3sl4.sandikspawner.menu.Menu;
 import com.infumia.t3sl4.sandikspawner.SpawnerAPI;
 import com.infumia.t3sl4.sandikspawner.chest.user.User;
 import org.bukkit.Bukkit;

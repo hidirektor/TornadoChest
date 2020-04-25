@@ -1,4 +1,4 @@
-package com.infumia.t3sl4.sandikspawner.menu.chest;
+package com.infumia.t3sl4.sandikspawner.menu;
 
 import io.github.portlek.inventory.Pane;
 import io.github.portlek.inventory.element.BasicElement;

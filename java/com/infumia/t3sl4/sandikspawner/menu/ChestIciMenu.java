@@ -1,4 +1,4 @@
-package com.infumia.t3sl4.sandikspawner.menu.chest;
+package com.infumia.t3sl4.sandikspawner.menu;
 
 import com.infumia.t3sl4.sandikspawner.util.InventoryIsFull;
 import io.github.portlek.inventory.Pane;
@@ -20,12 +20,10 @@ import io.github.portlek.itemstack.item.meta.set.SetMetaOf;
 import io.github.portlek.itemstack.util.Colored;
 import io.github.portlek.mcyaml.IYaml;
 import com.infumia.t3sl4.sandikspawner.SpawnerAPI;
-import com.infumia.t3sl4.sandikspawner.chest.ChestPlace;
 import com.infumia.t3sl4.sandikspawner.chest.placed.ChestPlaced;
 import com.infumia.t3sl4.sandikspawner.chest.user.User;
 import com.infumia.t3sl4.sandikspawner.util.Util;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.cactoos.iterable.Filtered;
