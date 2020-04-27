@@ -32,25 +32,31 @@ public class ChestControl implements Listener {
                         .getString("chest-spawner-id")
         );
         Block block = event.getBlockPlaced();
-        Location chestLocation = ChestPlaced.chest.getLocation();
 
         if (!(chestType instanceof MckChestType)) {
             return;
         }
 
-        int xi = chestLocation.getBlockX();
-        int yi = chestLocation.getBlockY();
-        int zi = chestLocation.getBlockZ();
-        if (block.getType() == Material.CHEST) {
-            if (block.getLocation().getX() == xi+1) {
-                event.setCancelled(true);
-            } else if (block.getLocation().getX() == xi-1) {
-                event.setCancelled(true);
-            } else if (block.getLocation().getZ() == zi+1) {
-                event.setCancelled(true);
-            } else if (block.getLocation().getZ() == zi-1) {
-                event.setCancelled(true);
-            }
+        if (ChestPlaced.chest2.isPlaced()) {
+            final Location chestLocation = ChestPlaced.chest2.getLocation();
+            int xi = chestLocation.getBlockX();
+            int yi = chestLocation.getBlockY();
+            int zi = chestLocation.getBlockZ();
+            if (block.getType() == Material.CHEST || block.getType() == Material.TRAPPED_CHEST)
+                if (block.getLocation().getX() == (xi + 1)) {
+                    if (this.spawnerAPI.findChestByLocation(chestLocation) != null)
+                        event.setCancelled(true);
+                } else if (block.getLocation().getX() == (xi - 1)) {
+                    if (this.spawnerAPI.findChestByLocation(chestLocation) != null)
+                        event.setCancelled(true);
+                } else if (block.getLocation().getZ() == (zi + 1)) {
+                    if (this.spawnerAPI.findChestByLocation(chestLocation) != null)
+                        event.setCancelled(true);
+                } else if (block.getLocation().getZ() == (zi - 1)) {
+                    if (this.spawnerAPI.findChestByLocation(chestLocation) != null) {
+                        event.setCancelled(true);
+                    }
+                }
         }
     }
 

@@ -26,6 +26,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public final class ChestPlaced {
+   public static Chest chest2;
    @NotNull
    private final SpawnerAPI spawnerAPI;
    @NotNull
@@ -33,7 +34,7 @@ public final class ChestPlaced {
    @NotNull
    public final UUID owner;
    @NotNull
-   public static Chest chest;
+   public final Chest chest;
    @NotNull
    public final Sign sign;
    @NotNull
@@ -51,6 +52,7 @@ public final class ChestPlaced {
       this.uuid = uuid;
       this.owner = owner;
       this.chest = chest;
+      this.chest2 = chest;
       this.sign = sign;
       this.chestType = chestType;
       this.storage = storage;
