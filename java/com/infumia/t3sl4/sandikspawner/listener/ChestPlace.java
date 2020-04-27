@@ -94,8 +94,8 @@ public final class ChestPlace implements Listener {
               )
       );
       event.getPlayer().sendMessage(spawnerAPI.getLanguage().generalYouPlaceAChestSpawner(chestType.getName()));
-      final Location blockLocation = new Location(block.getWorld(), block.getX(), block.getY(), block.getZ());
-      event.getPlayer().sendMessage("Blok X: " + blockLocation.getBlockX());
+      //final Location blockLocation = new Location(block.getWorld(), block.getX(), block.getY(), block.getZ());
+      //event.getPlayer().sendMessage("Blok X: " + blockLocation.getBlockX());
    }
 
    private boolean check(@NotNull Block block) {
