@@ -64,7 +64,7 @@ public class Wrapper1_14_R1 implements VersionWrapper {
    }
 
    public Object newContainerAnvil(Player player) {
-      return Bukkit.getBukkitVersion().contains("1.14.4") ? new AnvilContainer1_14_4_R1(player, this.getNextContainerId(player)) : new Wrapper1_14_R1.AnvilContainer(player);
+      return Bukkit.getBukkitVersion().contains("1.14.4") ? new AnvilContainer1_14_4_R1(player, this.getNextContainerId(player)) : new AnvilContainer(player);
    }
 
    private EntityPlayer toNMS(Player player) {

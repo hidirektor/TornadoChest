@@ -38,8 +38,8 @@ public final class BookUtil {
       }
    }
 
-   public static BookUtil.BookBuilder writtenBook() {
-      return new BookUtil.BookBuilder(new ItemStack(Material.WRITTEN_BOOK));
+   public static BookBuilder writtenBook() {
+      return new BookBuilder(new ItemStack(Material.WRITTEN_BOOK));
    }
 
    static {
@@ -59,47 +59,47 @@ public final class BookUtil {
 
       BaseComponent[] value();
 
-      static BookUtil.HoverAction showText(BaseComponent... text) {
-         return new BookUtil.HoverAction.SimpleHoverAction(Action.SHOW_TEXT, text);
+      static HoverAction showText(BaseComponent... text) {
+         return new SimpleHoverAction(Action.SHOW_TEXT, text);
       }
 
-      static BookUtil.HoverAction showText(String text) {
-         return new BookUtil.HoverAction.SimpleHoverAction(Action.SHOW_TEXT, new BaseComponent[]{new TextComponent(text)});
+      static HoverAction showText(String text) {
+         return new SimpleHoverAction(Action.SHOW_TEXT, new BaseComponent[]{new TextComponent(text)});
       }
 
-      static BookUtil.HoverAction showItem(BaseComponent... item) {
-         return new BookUtil.HoverAction.SimpleHoverAction(Action.SHOW_ITEM, item);
+      static HoverAction showItem(BaseComponent... item) {
+         return new SimpleHoverAction(Action.SHOW_ITEM, item);
       }
 
-      static BookUtil.HoverAction showItem(ItemStack item) {
-         return new BookUtil.HoverAction.SimpleHoverAction(Action.SHOW_ITEM, NmsBookHelper.itemToComponents(item));
+      static HoverAction showItem(ItemStack item) {
+         return new SimpleHoverAction(Action.SHOW_ITEM, NmsBookHelper.itemToComponents(item));
       }
 
-      static BookUtil.HoverAction showEntity(BaseComponent... entity) {
-         return new BookUtil.HoverAction.SimpleHoverAction(Action.SHOW_ENTITY, entity);
+      static HoverAction showEntity(BaseComponent... entity) {
+         return new SimpleHoverAction(Action.SHOW_ENTITY, entity);
       }
 
-      static BookUtil.HoverAction showEntity(UUID uuid, String type, String name) {
-         return new BookUtil.HoverAction.SimpleHoverAction(Action.SHOW_ENTITY, NmsBookHelper.jsonToComponents("{id:\"" + uuid + "\",type:\"" + type + "\"name:\"" + name + "\"}"));
+      static HoverAction showEntity(UUID uuid, String type, String name) {
+         return new SimpleHoverAction(Action.SHOW_ENTITY, NmsBookHelper.jsonToComponents("{id:\"" + uuid + "\",type:\"" + type + "\"name:\"" + name + "\"}"));
       }
 
-      static BookUtil.HoverAction showEntity(Entity entity) {
+      static HoverAction showEntity(Entity entity) {
          return showEntity(entity.getUniqueId(), entity.getType().getName(), entity.getName());
       }
 
-      static BookUtil.HoverAction showAchievement(String achievementId) {
-         return new BookUtil.HoverAction.SimpleHoverAction(Action.SHOW_ACHIEVEMENT, new BaseComponent[]{new TextComponent("achievement." + achievementId)});
+      static HoverAction showAchievement(String achievementId) {
+         return new SimpleHoverAction(Action.SHOW_ACHIEVEMENT, new BaseComponent[]{new TextComponent("achievement." + achievementId)});
       }
 
-      static BookUtil.HoverAction showAchievement(Achievement achievement) {
+      static HoverAction showAchievement(Achievement achievement) {
          return showAchievement(AchievementUtil.toId(achievement));
       }
 
-      static BookUtil.HoverAction showStatistic(String statisticId) {
-         return new BookUtil.HoverAction.SimpleHoverAction(Action.SHOW_ACHIEVEMENT, new BaseComponent[]{new TextComponent("statistic." + statisticId)});
+      static HoverAction showStatistic(String statisticId) {
+         return new SimpleHoverAction(Action.SHOW_ACHIEVEMENT, new BaseComponent[]{new TextComponent("statistic." + statisticId)});
       }
 
-      public static class SimpleHoverAction implements BookUtil.HoverAction {
+      public static class SimpleHoverAction implements HoverAction {
          private final Action action;
          private final BaseComponent[] value;
 
@@ -123,29 +123,29 @@ public final class BookUtil {
 
       String value();
 
-      static BookUtil.ClickAction runCommand(String command) {
-         return new BookUtil.ClickAction.SimpleClickAction(net.md_5.bungee.api.chat.ClickEvent.Action.RUN_COMMAND, command);
+      static ClickAction runCommand(String command) {
+         return new SimpleClickAction(net.md_5.bungee.api.chat.ClickEvent.Action.RUN_COMMAND, command);
       }
 
       /** @deprecated */
       @Deprecated
-      static BookUtil.ClickAction suggestCommand(String command) {
-         return new BookUtil.ClickAction.SimpleClickAction(net.md_5.bungee.api.chat.ClickEvent.Action.SUGGEST_COMMAND, command);
+      static ClickAction suggestCommand(String command) {
+         return new SimpleClickAction(net.md_5.bungee.api.chat.ClickEvent.Action.SUGGEST_COMMAND, command);
       }
 
-      static BookUtil.ClickAction openUrl(String url) {
+      static ClickAction openUrl(String url) {
          if (!url.startsWith("http://") && !url.startsWith("https://")) {
             throw new IllegalArgumentException("Invalid url: \"" + url + "\", it should start with http:// or https://");
          } else {
-            return new BookUtil.ClickAction.SimpleClickAction(net.md_5.bungee.api.chat.ClickEvent.Action.OPEN_URL, url);
+            return new SimpleClickAction(net.md_5.bungee.api.chat.ClickEvent.Action.OPEN_URL, url);
          }
       }
 
-      static BookUtil.ClickAction changePage(int page) {
-         return new BookUtil.ClickAction.SimpleClickAction(net.md_5.bungee.api.chat.ClickEvent.Action.CHANGE_PAGE, Integer.toString(page));
+      static ClickAction changePage(int page) {
+         return new SimpleClickAction(net.md_5.bungee.api.chat.ClickEvent.Action.CHANGE_PAGE, Integer.toString(page));
       }
 
-      public static class SimpleClickAction implements BookUtil.ClickAction {
+      public static class SimpleClickAction implements ClickAction {
          private final net.md_5.bungee.api.chat.ClickEvent.Action action;
          private final String value;
 
@@ -167,8 +167,8 @@ public final class BookUtil {
 
    public static class TextBuilder {
       private String text = "";
-      private BookUtil.ClickAction onClick = null;
-      private BookUtil.HoverAction onHover = null;
+      private ClickAction onClick = null;
+      private HoverAction onHover = null;
       private ChatColor color;
       private ChatColor[] style;
 
@@ -176,7 +176,7 @@ public final class BookUtil {
          this.color = ChatColor.BLACK;
       }
 
-      public BookUtil.TextBuilder color(ChatColor color) {
+      public TextBuilder color(ChatColor color) {
          if (color != null && !color.isColor()) {
             throw new IllegalArgumentException("Argument isn't a color!");
          } else {
@@ -185,7 +185,7 @@ public final class BookUtil {
          }
       }
 
-      public BookUtil.TextBuilder style(ChatColor... style) {
+      public TextBuilder style(ChatColor... style) {
          ChatColor[] var2 = style;
          int var3 = style.length;
 
@@ -246,21 +246,21 @@ public final class BookUtil {
          return res;
       }
 
-      public static BookUtil.TextBuilder of(String text) {
-         return (new BookUtil.TextBuilder()).text(text);
+      public static TextBuilder of(String text) {
+         return (new TextBuilder()).text(text);
       }
 
-      public BookUtil.TextBuilder text(String text) {
+      public TextBuilder text(String text) {
          this.text = text;
          return this;
       }
 
-      public BookUtil.TextBuilder onClick(BookUtil.ClickAction onClick) {
+      public TextBuilder onClick(ClickAction onClick) {
          this.onClick = onClick;
          return this;
       }
 
-      public BookUtil.TextBuilder onHover(BookUtil.HoverAction onHover) {
+      public TextBuilder onHover(HoverAction onHover) {
          this.onHover = onHover;
          return this;
       }
@@ -269,11 +269,11 @@ public final class BookUtil {
          return this.text;
       }
 
-      public BookUtil.ClickAction onClick() {
+      public ClickAction onClick() {
          return this.onClick;
       }
 
-      public BookUtil.HoverAction onHover() {
+      public HoverAction onHover() {
          return this.onHover;
       }
 
@@ -285,27 +285,27 @@ public final class BookUtil {
    public static class PageBuilder {
       private List<BaseComponent> text = new ArrayList();
 
-      public BookUtil.PageBuilder add(String text) {
-         this.text.add(BookUtil.TextBuilder.of(text).build());
+      public PageBuilder add(String text) {
+         this.text.add(TextBuilder.of(text).build());
          return this;
       }
 
-      public BookUtil.PageBuilder add(BaseComponent component) {
+      public PageBuilder add(BaseComponent component) {
          this.text.add(component);
          return this;
       }
 
-      public BookUtil.PageBuilder add(BaseComponent... components) {
+      public PageBuilder add(BaseComponent... components) {
          this.text.addAll(Arrays.asList(components));
          return this;
       }
 
-      public BookUtil.PageBuilder add(Collection<BaseComponent> components) {
+      public PageBuilder add(Collection<BaseComponent> components) {
          this.text.addAll(components);
          return this;
       }
 
-      public BookUtil.PageBuilder newLine() {
+      public PageBuilder newLine() {
          this.text.add(new TextComponent("\n"));
          return this;
       }
@@ -314,16 +314,16 @@ public final class BookUtil {
          return (BaseComponent[])this.text.toArray(new BaseComponent[0]);
       }
 
-      public static BookUtil.PageBuilder of(String text) {
-         return (new BookUtil.PageBuilder()).add(text);
+      public static PageBuilder of(String text) {
+         return (new PageBuilder()).add(text);
       }
 
-      public static BookUtil.PageBuilder of(BaseComponent text) {
-         return (new BookUtil.PageBuilder()).add(text);
+      public static PageBuilder of(BaseComponent text) {
+         return (new PageBuilder()).add(text);
       }
 
-      public static BookUtil.PageBuilder of(BaseComponent... text) {
-         BookUtil.PageBuilder res = new BookUtil.PageBuilder();
+      public static PageBuilder of(BaseComponent... text) {
+         PageBuilder res = new PageBuilder();
          BaseComponent[] var2 = text;
          int var3 = text.length;
 
@@ -345,37 +345,37 @@ public final class BookUtil {
          this.meta = (BookMeta)book.getItemMeta();
       }
 
-      public BookUtil.BookBuilder title(String title) {
+      public BookBuilder title(String title) {
          this.meta.setTitle(title);
          return this;
       }
 
-      public BookUtil.BookBuilder author(String author) {
+      public BookBuilder author(String author) {
          this.meta.setAuthor(author);
          return this;
       }
 
-      public BookUtil.BookBuilder pagesRaw(String... pages) {
+      public BookBuilder pagesRaw(String... pages) {
          this.meta.setPages(pages);
          return this;
       }
 
-      public BookUtil.BookBuilder pagesRaw(List<String> pages) {
+      public BookBuilder pagesRaw(List<String> pages) {
          this.meta.setPages(pages);
          return this;
       }
 
-      public BookUtil.BookBuilder pages(BaseComponent[]... pages) {
+      public BookBuilder pages(BaseComponent[]... pages) {
          NmsBookHelper.setPages(this.meta, pages);
          return this;
       }
 
-      public BookUtil.BookBuilder pages(List<BaseComponent[]> pages) {
+      public BookBuilder pages(List<BaseComponent[]> pages) {
          NmsBookHelper.setPages(this.meta, (BaseComponent[][])pages.toArray(new BaseComponent[0][]));
          return this;
       }
 
-      public BookUtil.BookBuilder generation(Generation generation) {
+      public BookBuilder generation(Generation generation) {
          this.meta.setGeneration(generation);
          return this;
       }

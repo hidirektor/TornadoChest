@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 public final class BasicSource<T> implements Source<T> {
    @NotNull
-   private final Vector<com.infumia.t3sl4.util.observer.Target<T>> targets = new Vector();
+   private final Vector<Target<T>> targets = new Vector();
 
    public void subscribe(@NotNull com.infumia.t3sl4.util.observer.Target<T> target) {
       if (!this.targets.contains(target)) {
@@ -26,7 +26,7 @@ public final class BasicSource<T> implements Source<T> {
       Iterator var2 = this.targets.iterator();
 
       while(var2.hasNext()) {
-         com.infumia.t3sl4.util.observer.Target<T> target = (Target)var2.next();
+         Target<T> target = (Target)var2.next();
          target.update(argument);
       }
 

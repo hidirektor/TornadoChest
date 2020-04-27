@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 public class MckMethod implements RefMethod {
    @NotNull
    public com.infumia.t3sl4.util.reflection.RefMethodExecuted of(@NotNull Object object) {
-      return new MckMethod.MckMethodExecuted();
+      return new MckMethodExecuted();
    }
 
    @NotNull

@@ -65,7 +65,7 @@ public class ClassOf implements com.infumia.t3sl4.util.reflection.RefClass {
 
    @NotNull
    private com.infumia.t3sl4.util.reflection.RefMethod getMethod0(@NotNull final String name, final boolean primitive, @NotNull final Object... types) {
-      final com.infumia.t3sl4.util.reflection.RefParameterized<com.infumia.t3sl4.util.reflection.RefMethod> parameter = new com.infumia.t3sl4.util.reflection.parameterized.ParameterizedOf<>(primitive, types);
+      final com.infumia.t3sl4.util.reflection.RefParameterized<com.infumia.t3sl4.util.reflection.RefMethod> parameter = new ParameterizedOf<>(primitive, types);
 
       try {
          try {
@@ -96,7 +96,7 @@ public class ClassOf implements com.infumia.t3sl4.util.reflection.RefClass {
 
    @NotNull
    private com.infumia.t3sl4.util.reflection.RefConstructed getConstructor0(final boolean primitive, @NotNull Object... types) {
-      final com.infumia.t3sl4.util.reflection.RefParameterized<com.infumia.t3sl4.util.reflection.RefConstructed> parameter = new com.infumia.t3sl4.util.reflection.parameterized.ParameterizedOf<>(primitive, types);
+      final com.infumia.t3sl4.util.reflection.RefParameterized<RefConstructed> parameter = new ParameterizedOf<>(primitive, types);
 
       try {
          try {

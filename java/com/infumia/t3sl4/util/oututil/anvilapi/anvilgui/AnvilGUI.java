@@ -25,11 +25,11 @@ public class AnvilGUI {
    private String text;
    private final boolean preventClose;
    private final Consumer<Player> closeListener;
-   private final BiFunction<Player, String, AnvilGUI.Response> completeFunction;
+   private final BiFunction<Player, String, Response> completeFunction;
    private ItemStack insert;
    private int containerId;
    private Inventory inventory;
-   private final AnvilGUI.ListenUp listener;
+   private final ListenUp listener;
    private boolean open;
 
    /** @deprecated */
@@ -37,13 +37,13 @@ public class AnvilGUI {
    public AnvilGUI(Plugin plugin, Player holder, String insert, BiFunction<Player, String, String> biFunction) {
       this(plugin, holder, insert, false, (Consumer)null, (player, text) -> {
          String response = (String)biFunction.apply(player, text);
-         return response != null ? AnvilGUI.Response.text(response) : AnvilGUI.Response.close();
+         return response != null ? Response.text(response) : Response.close();
       });
    }
 
-   private AnvilGUI(Plugin plugin, Player player, String text, boolean preventClose, Consumer<Player> closeListener, BiFunction<Player, String, AnvilGUI.Response> completeFunction) {
+   private AnvilGUI(Plugin plugin, Player player, String text, boolean preventClose, Consumer<Player> closeListener, BiFunction<Player, String, Response> completeFunction) {
       this.text = "";
-      this.listener = new AnvilGUI.ListenUp();
+      this.listener = new ListenUp();
       this.plugin = plugin;
       this.player = player;
       this.text = text;
@@ -112,46 +112,46 @@ public class AnvilGUI {
          return this.text;
       }
 
-      public static AnvilGUI.Response close() {
-         return new AnvilGUI.Response((String)null);
+      public static Response close() {
+         return new Response((String)null);
       }
 
-      public static AnvilGUI.Response text(String text) {
-         return new AnvilGUI.Response(text);
+      public static Response text(String text) {
+         return new Response(text);
       }
    }
 
    public static class Builder {
       private Consumer<Player> closeListener;
       private boolean preventClose = false;
-      private BiFunction<Player, String, AnvilGUI.Response> completeFunction;
+      private BiFunction<Player, String, Response> completeFunction;
       private Plugin plugin;
       private String text = "";
 
-      public AnvilGUI.Builder preventClose() {
+      public Builder preventClose() {
          this.preventClose = true;
          return this;
       }
 
-      public AnvilGUI.Builder onClose(Consumer<Player> closeListener) {
+      public Builder onClose(Consumer<Player> closeListener) {
          Validate.notNull(closeListener, "closeListener cannot be null");
          this.closeListener = closeListener;
          return this;
       }
 
-      public AnvilGUI.Builder onComplete(BiFunction<Player, String, AnvilGUI.Response> completeFunction) {
+      public Builder onComplete(BiFunction<Player, String, Response> completeFunction) {
          Validate.notNull(completeFunction, "Complete function cannot be null");
          this.completeFunction = completeFunction;
          return this;
       }
 
-      public AnvilGUI.Builder plugin(Plugin plugin) {
+      public Builder plugin(Plugin plugin) {
          Validate.notNull(plugin, "Plugin cannot be null");
          this.plugin = plugin;
          return this;
       }
 
-      public AnvilGUI.Builder text(String text) {
+      public Builder text(String text) {
          Validate.notNull(text, "Text cannot be null");
          this.text = text;
          return this;
@@ -180,7 +180,7 @@ public class AnvilGUI {
                   return;
                }
 
-               AnvilGUI.Response response = (AnvilGUI.Response)AnvilGUI.this.completeFunction.apply(clicker, clicked.hasItemMeta() ? clicked.getItemMeta().getDisplayName() : "");
+               Response response = (Response)AnvilGUI.this.completeFunction.apply(clicker, clicked.hasItemMeta() ? clicked.getItemMeta().getDisplayName() : "");
                if (response.getText() != null) {
                   ItemMeta meta = clicked.getItemMeta();
                   meta.setDisplayName(response.getText());

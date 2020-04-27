@@ -52,7 +52,7 @@ public class Wrapper1_12_R1 implements VersionWrapper {
    }
 
    public Object newContainerAnvil(Player player) {
-      return new Wrapper1_12_R1.AnvilContainer(this.toNMS(player));
+      return new AnvilContainer(this.toNMS(player));
    }
 
    private EntityPlayer toNMS(Player player) {

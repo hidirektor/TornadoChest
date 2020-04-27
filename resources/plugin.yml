@@ -1,12 +1,19 @@
-name: SandikSpawner
-version: 24.04.2020
-main: com.infumia.t3sl4.sandikspawner.SandikSpawner
+name: TornadoChest
+version: 27.04.2020
+main: com.infumia.com.infumia.t3sl4.sandikspawner.SandikSpawner
 authors: [SYN_T3SL4]
 depend:
   - Vault
 
 commands:
-  sandiksp:
+  tornadochestsp:
     aliases:
+      - sandiksp
       - chestsp
       - chestspawner
+      - tornadochest
+# Yetkiler:
+# tornadochestsp.dagit >> Spawner Dağıtma Komutunu Kullanmanızı Sağlar.
+# tornadochestsp.ver >> Spawner Verme Komutunu Kullanmanızı Sağlar.
+# tornadochestsp.ayarlar >> Ayarlar Komutunu Kullanmanızı Sağlar.
+# tornadochestsp.reload >> Eklentiyi Yenilemenizi Sağlar.

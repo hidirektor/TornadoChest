@@ -1004,7 +1004,7 @@ public enum XMaterial {
       return new String[x$0];
    });
    private static final HashMap<String, XMaterial> CACHED_SEARCH = new HashMap();
-   private static XMaterial.MinecraftVersion version;
+   private static MinecraftVersion version;
    private static Boolean isNewVersion;
    private final byte data;
    private final String[] legacy;
@@ -1022,7 +1022,7 @@ public enum XMaterial {
    }
 
    public static boolean isOneEight() {
-      return getVersion() == XMaterial.MinecraftVersion.VERSION_1_8;
+      return getVersion() == MinecraftVersion.VERSION_1_8;
    }
 
    @NotNull
@@ -1142,12 +1142,12 @@ public enum XMaterial {
    }
 
    public static boolean isVersionOrHigher(@NotNull XMaterial.MinecraftVersion version) {
-      XMaterial.MinecraftVersion current = getVersion();
+      MinecraftVersion current = getVersion();
       if (version == current) {
          return true;
-      } else if (version == XMaterial.MinecraftVersion.UNKNOWN) {
+      } else if (version == MinecraftVersion.UNKNOWN) {
          return false;
-      } else if (current == XMaterial.MinecraftVersion.UNKNOWN) {
+      } else if (current == MinecraftVersion.UNKNOWN) {
          return true;
       } else {
          int ver = Integer.parseInt(StringUtils.replace(StringUtils.replace(version.name(), "VERSION_", ""), "_", ""));
@@ -1291,7 +1291,7 @@ public enum XMaterial {
 
    @NotNull
    private Material requestOldMaterial(boolean suggest) {
-      boolean isNew = this.getVersionIfNew() != XMaterial.MinecraftVersion.UNKNOWN;
+      boolean isNew = this.getVersionIfNew() != MinecraftVersion.UNKNOWN;
 
       for(int i = this.legacy.length - 1; i >= 0; --i) {
          String legacyName = this.legacy[i];
@@ -1340,7 +1340,7 @@ public enum XMaterial {
 
    @NotNull
    public XMaterial.MinecraftVersion getVersionIfNew() {
-      return this.isNew() ? valueOfVersion(this.legacy[0]) : XMaterial.MinecraftVersion.UNKNOWN;
+      return this.isNew() ? valueOfVersion(this.legacy[0]) : MinecraftVersion.UNKNOWN;
    }
 
    public boolean isNew() {
@@ -1349,7 +1349,7 @@ public enum XMaterial {
 
    @NotNull
    public XMaterial suggestOldMaterialIfNew() {
-      if (this.getVersionIfNew() != XMaterial.MinecraftVersion.UNKNOWN && this.legacy.length != 1) {
+      if (this.getVersionIfNew() != MinecraftVersion.UNKNOWN && this.legacy.length != 1) {
          for(int i = this.legacy.length - 1; i >= 0; --i) {
             String legacyName = this.legacy[i];
             if (!legacyName.contains("/")) {
@@ -1373,6 +1373,6 @@ public enum XMaterial {
       VERSION_1_14,
       UNKNOWN;
 
-      public static final XMaterial.MinecraftVersion[] VALUES = values();
+      public static final MinecraftVersion[] VALUES = values();
    }
 }

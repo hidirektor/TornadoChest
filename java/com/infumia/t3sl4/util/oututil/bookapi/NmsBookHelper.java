@@ -42,7 +42,7 @@ public final class NmsBookHelper {
          }
 
       } catch (Exception var8) {
-         throw new NmsBookHelper.UnsupportedVersionException(var8);
+         throw new UnsupportedVersionException(var8);
       }
    }
 
@@ -55,7 +55,7 @@ public final class NmsBookHelper {
          }
 
       } catch (Exception var4) {
-         throw new NmsBookHelper.UnsupportedVersionException(var4);
+         throw new UnsupportedVersionException(var4);
       }
    }
 
@@ -74,7 +74,7 @@ public final class NmsBookHelper {
          Object json = nmsItemStackSave.invoke(nmsItemStack, emptyTag);
          return json.toString();
       } catch (Exception var4) {
-         throw new NmsBookHelper.UnsupportedVersionException(var4);
+         throw new UnsupportedVersionException(var4);
       }
    }
 
