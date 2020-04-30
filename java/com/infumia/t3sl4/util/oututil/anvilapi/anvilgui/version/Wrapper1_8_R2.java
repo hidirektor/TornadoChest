@@ -52,7 +52,7 @@ public class Wrapper1_8_R2 implements VersionWrapper {
    }
 
    public Object newContainerAnvil(Player player) {
-      return new AnvilContainer(this.toNMS(player));
+      return new Wrapper1_8_R2.AnvilContainer(this.toNMS(player));
    }
 
    private EntityPlayer toNMS(Player player) {

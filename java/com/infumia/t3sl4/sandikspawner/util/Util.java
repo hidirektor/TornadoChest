@@ -1,5 +1,6 @@
 package com.infumia.t3sl4.sandikspawner.util;
 
+import com.infumia.t3sl4.sandikspawner.chest.placed.ChestPlaced;
 import com.infumia.t3sl4.util.itemstack.item.set.SetAmountOf;
 import com.infumia.t3sl4.util.itemstack.util.XMaterial;
 import com.infumia.t3sl4.util.reflection.clazz.ClassOf;

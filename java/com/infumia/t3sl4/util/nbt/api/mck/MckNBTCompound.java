@@ -11,7 +11,7 @@ import com.infumia.t3sl4.util.nbt.api.NBTType;
 import org.cactoos.set.SetOf;
 import org.jetbrains.annotations.NotNull;
 
-public class MckNBTCompound extends MckNBTBase implements NBTCompound<NBTBase> {
+public class MckNBTCompound extends MckNBTBase implements com.infumia.t3sl4.util.nbt.api.NBTCompound<com.infumia.t3sl4.util.nbt.api.NBTBase> {
    public void set(@NotNull String key, @NotNull com.infumia.t3sl4.util.nbt.api.NBTBase value) {
    }
 

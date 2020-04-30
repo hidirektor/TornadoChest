@@ -1,10 +1,13 @@
 package com.infumia.t3sl4.sandikspawner.chest.placed;
 
+import com.infumia.t3sl4.sandikspawner.SandikSpawner;
 import com.infumia.t3sl4.util.itemstack.util.Colored;
 import com.infumia.t3sl4.util.location.StringOf;
 import io.github.portlek.mcyaml.IYaml;
 import com.infumia.t3sl4.sandikspawner.SpawnerAPI;
 import com.infumia.t3sl4.sandikspawner.chest.type.ChestType;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -14,6 +17,8 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
 import org.bukkit.block.Sign;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Item;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
@@ -26,9 +31,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public final class ChestPlaced {
-   public static Chest chest2;
    @NotNull
    private final SpawnerAPI spawnerAPI;
+   public static Chest chest2;
    @NotNull
    public final UUID uuid;
    @NotNull
@@ -39,43 +44,30 @@ public final class ChestPlaced {
    public final Sign sign;
    @NotNull
    public final ChestType chestType;
+   @NotNull
+   private final List<Entity> entities = new ArrayList();
    public int storage;
-   private int durum;
+   public int level;
    @NotNull
    private String esyaDusmeDurumu = "İç";
-   public int level;
+   private int durum;
+   private long canDrop;
    @Nullable
    private BukkitTask task;
 
    public ChestPlaced(@NotNull SpawnerAPI spawnerAPI, @NotNull UUID uuid, @NotNull UUID owner, @NotNull Chest chest, @NotNull Sign sign, @NotNull ChestType chestType, int storage, int durum, int level) {
       this.spawnerAPI = spawnerAPI;
+      this.canDrop = 0L;
       this.uuid = uuid;
+      this.chest2 = chest;
       this.owner = owner;
       this.chest = chest;
-      this.chest2 = chest;
       this.sign = sign;
       this.chestType = chestType;
       this.storage = storage;
       this.durum = durum;
       this.level = level;
       this.updateEsyaDusmesi();
-   }
-
-   public void changeEsyaDusmesi(int i) {
-      this.durum = i;
-      this.updateEsyaDusmesi();
-      this.saveTo(this.spawnerAPI.placedChest);
-   }
-
-   public void changeEsyaDusmesi() {
-      if (this.durum < 2) {
-         ++this.durum;
-      } else {
-         this.durum = 0;
-      }
-
-      this.updateEsyaDusmesi();
-      this.saveTo(this.spawnerAPI.placedChest);
    }
 
    private void updateEsyaDusmesi() {
@@ -89,20 +81,10 @@ public final class ChestPlaced {
 
    }
 
-   public void remove() {
-      this.close();
-      Bukkit.getScheduler().runTask(this.spawnerAPI.plugin, () -> {
-         this.sign.getBlock().setType(Material.AIR);
-         this.chest.getBlock().setType(Material.AIR);
-      });
-   }
-
-   public void levelUp() {
-      if (this.level < this.chestType.maxLevel()) {
-         ++this.level;
-         this.update();
-         this.saveTo(this.spawnerAPI.placedChest);
-      }
+   public void changeEsyaDusmesi(int i) {
+      this.durum = i;
+      this.updateEsyaDusmesi();
+      this.saveTo(this.spawnerAPI.placedChest);
    }
 
    public void saveTo(@NotNull IYaml yaml) {
@@ -111,23 +93,40 @@ public final class ChestPlaced {
       yaml.set("Spawners." + this.uuid.toString() + ".sign-location", (new StringOf(this.sign.getLocation())).asKey());
       yaml.set("Spawners." + this.uuid.toString() + ".type", this.chestType.getId());
       yaml.set("Spawners." + this.uuid.toString() + ".level", this.level);
-      yaml.set("Spawners." + this.uuid.toString() + ".durum", this.durum);
+      yaml.set("Spawners." + this.uuid.toString() + ".status", this.durum);
       yaml.set("Spawners." + this.uuid.toString() + ".storage", this.storage);
    }
 
-   public void updateSign() {
-      this.sign.setLine(0, this.replaceSignLines((String)this.spawnerAPI.getConfigs().sign.get(0)));
-      this.sign.setLine(1, this.replaceSignLines((String)this.spawnerAPI.getConfigs().sign.get(1)));
-      this.sign.setLine(2, this.replaceSignLines((String)this.spawnerAPI.getConfigs().sign.get(2)));
-      this.sign.setLine(3, this.replaceSignLines((String)this.spawnerAPI.getConfigs().sign.get(3)));
-      this.sign.update();
+   public void changeEsyaDusmesi() {
+      if (this.durum < 2) {
+         ++this.durum;
+      } else {
+         this.durum = 0;
+      }
+
+      this.updateEsyaDusmesi();
+      this.saveTo(this.spawnerAPI.placedChest);
    }
 
-   public void update() {
+   public void remove() {
+      Bukkit.getScheduler().runTask(SandikSpawner.getInstance(), () -> {
+         this.sign.getBlock().setType(Material.AIR);
+         this.chest.getBlock().setType(Material.AIR);
+      });
+   }
+
+   public void levelUp() {
+      if (this.level < this.chestType.maxLevel()) {
+         ++this.level;
+         this.update(false);
+         this.saveTo(this.spawnerAPI.placedChest);
+      }
+   }
+
+   public void update(boolean canDrop) {
       this.updateSign();
-      this.close();
       this.task = Bukkit.getScheduler().runTaskTimer(this.spawnerAPI.plugin, () -> {
-         if (Bukkit.getPlayer(this.owner) != null) {
+         if (canDrop && this.canDrop() && Bukkit.getPlayer(this.owner) != null) {
             ItemStack drop = this.chestType.getDrop(this.level);
             if (this.durum == 0) {
                this.chest.getBlockInventory().addItem(new ItemStack[]{drop});
@@ -143,6 +142,24 @@ public final class ChestPlaced {
       }, 0L, (long)this.chestType.speed(this.level - 1) * 20L);
    }
 
+   public void updateSign() {
+      this.sign.setLine(0, this.replaceSignLines((String)this.spawnerAPI.getConfigs().sign.get(0)));
+      this.sign.setLine(1, this.replaceSignLines((String)this.spawnerAPI.getConfigs().sign.get(1)));
+      this.sign.setLine(2, this.replaceSignLines((String)this.spawnerAPI.getConfigs().sign.get(2)));
+      this.sign.setLine(3, this.replaceSignLines((String)this.spawnerAPI.getConfigs().sign.get(3)));
+      this.sign.update();
+   }
+
+   private boolean canDrop() {
+      this.canDrop += 3L;
+      if (this.canDrop >= this.chestType.speed(this.level - 1)) {
+         this.canDrop = 0L;
+         return true;
+      } else {
+         return false;
+      }
+   }
+
    public void close() {
       if (this.task != null) {
          this.task.cancel();
@@ -150,6 +167,7 @@ public final class ChestPlaced {
       }
 
    }
+
 
    public void addItemToStorage(@NotNull ItemStack itemStack) {
       this.storage = (new SumOf(new Integer[]{itemStack.getAmount(), this.storage})).intValue();

@@ -1,13 +1,14 @@
 package com.infumia.t3sl4.sandikspawner.chest.type;
 
-import com.infumia.t3sl4.util.itemstack.item.meta.get.DisplayOf;
-import com.infumia.t3sl4.util.itemstack.item.meta.get.LoreOf;
-import com.infumia.t3sl4.util.itemstack.item.meta.set.SetDisplayOf;
-import com.infumia.t3sl4.util.itemstack.item.meta.set.SetLoreOf;
-import com.infumia.t3sl4.util.itemstack.item.meta.set.SetMetaOf;
-import com.infumia.t3sl4.util.nbt.api.NBTCompound;
-import com.infumia.t3sl4.util.nbt.base.ItemStackNBTOf;
 import com.infumia.t3sl4.sandikspawner.SpawnerAPI;
+import com.infumia.t3sl4.sandikspawner.chest.type.ChestType;
+import io.github.portlek.itemstack.item.meta.get.DisplayOf;
+import io.github.portlek.itemstack.item.meta.get.LoreOf;
+import io.github.portlek.itemstack.item.meta.set.SetDisplayOf;
+import io.github.portlek.itemstack.item.meta.set.SetLoreOf;
+import io.github.portlek.itemstack.item.meta.set.SetMetaOf;
+import io.github.portlek.nbt.api.NBTCompound;
+import io.github.portlek.nbt.base.ItemStackNBTOf;
 import java.util.List;
 import java.util.Optional;
 import org.bukkit.inventory.ItemStack;
@@ -56,22 +57,6 @@ public final class ChestTypeBasic implements ChestType {
    }
 
    @NotNull
-   public ItemStack getDrop() {
-      return this.drop;
-   }
-
-   @NotNull
-   public ItemStack getDrop(int level) {
-      ItemStack itemStack = this.drop.clone();
-      itemStack.setAmount((Integer)this.amount.get(level - 1));
-      return itemStack;
-   }
-
-   public int money() {
-      return this.money;
-   }
-
-   @NotNull
    public ItemStack getChestItem(int level) {
       ItemStackNBTOf itemStackNBTOf = new ItemStackNBTOf(this.spawnerAPI.getConfigs().chestItem.clone());
       NBTCompound nbtCompound = itemStackNBTOf.nbt();
@@ -85,7 +70,23 @@ public final class ChestTypeBasic implements ChestType {
       }, (new LoreOf(withId)).value()))))).value();
    }
 
+   @NotNull
+   public ItemStack getDrop() {
+      return this.drop;
+   }
+
+   @NotNull
+   public ItemStack getDrop(int level) {
+      ItemStack itemStack = this.drop.clone();
+      itemStack.setAmount((Integer)this.amount.get(level - 1));
+      return itemStack;
+   }
+
    public int speed(int level) {
       return (Integer)this.speed.get(level);
+   }
+
+   public int money() {
+      return this.money;
    }
 }

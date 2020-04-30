@@ -10,13 +10,13 @@ public class CustomBookOpenEvent extends Event implements Cancellable {
    private static final HandlerList handlers = new HandlerList();
    private boolean cancelled;
    private final Player player;
-   private Hand hand;
+   private CustomBookOpenEvent.Hand hand;
    private ItemStack book;
 
    public CustomBookOpenEvent(Player player, ItemStack book, boolean offHand) {
       this.player = player;
       this.book = book;
-      this.hand = offHand ? Hand.OFF_HAND : Hand.MAIN_HAND;
+      this.hand = offHand ? CustomBookOpenEvent.Hand.OFF_HAND : CustomBookOpenEvent.Hand.MAIN_HAND;
    }
 
    public HandlerList getHandlers() {
@@ -39,11 +39,11 @@ public class CustomBookOpenEvent extends Event implements Cancellable {
       return this.player;
    }
 
-   public Hand getHand() {
+   public CustomBookOpenEvent.Hand getHand() {
       return this.hand;
    }
 
-   public void setHand(Hand hand) {
+   public void setHand(CustomBookOpenEvent.Hand hand) {
       this.hand = hand;
    }
 

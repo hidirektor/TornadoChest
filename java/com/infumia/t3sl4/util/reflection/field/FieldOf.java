@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class FieldOf implements RefField {
    private static final Logger LOGGER_FIELD_OF = new LoggerOf(new Class[]{FieldOf.class});
-   private static final Logger LOGGER = new LoggerOf(new Class[]{FieldOf.class, FieldExecuted.class});
+   private static final Logger LOGGER = new LoggerOf(new Class[]{FieldOf.class, FieldOf.FieldExecuted.class});
    @NotNull
    private final Field field;
    private final boolean isAccessible;
@@ -52,7 +52,7 @@ public class FieldOf implements RefField {
 
    @NotNull
    public RefFieldExecuted of(@NotNull Object object) {
-      return new FieldExecuted(object);
+      return new FieldOf.FieldExecuted(object);
    }
 
    private class FieldExecuted implements RefFieldExecuted {

@@ -108,7 +108,7 @@ public final class SpawnerAPI {
    public void add(@NotNull ChestPlaced placed) {
       PLACED_CHESTS.put(placed.uuid, placed);
       placed.saveTo(this.placedChest);
-      placed.update();
+      placed.update(true);
       User user = this.findUserByUUID(placed.owner);
       user.placeds.add(placed);
       user.saveTo(this.usersFile);
@@ -258,7 +258,7 @@ public final class SpawnerAPI {
          ChestPlaced placed = new ChestPlaced(this, (UUID)uuid.apply(filtered), (UUID)owner.apply(filtered), (Chest)chest.apply(filtered), (Sign)sign.apply(filtered), (ChestType)chestType.apply(filtered), storage.applyAsInt(filtered), durum.applyAsInt(filtered), level.applyAsInt(filtered));
          PLACED_CHESTS.put(placed.uuid, placed);
          placed.saveTo(this.placedChest);
-         placed.update();
+         placed.update(true);
       }, new Filtered<>((keyx) -> {
          return owner.apply(keyx) != null && !(chestType.apply(keyx) instanceof MckChestType) && chest.apply(keyx) instanceof Chest && sign.apply(keyx) instanceof Sign;
       }, this.placedChest.getSection("Spawners").getKeys(false)));

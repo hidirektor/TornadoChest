@@ -5,7 +5,7 @@ import com.infumia.t3sl4.util.nbt.api.NBTCompound;
 import com.infumia.t3sl4.util.nbt.api.NBTList;
 import org.jetbrains.annotations.NotNull;
 
-public class MckNBTList extends MckNBTBase implements NBTList<NBTBase, NBTBase> {
+public class MckNBTList extends MckNBTBase implements com.infumia.t3sl4.util.nbt.api.NBTList<com.infumia.t3sl4.util.nbt.api.NBTBase, com.infumia.t3sl4.util.nbt.api.NBTBase> {
    public void add(@NotNull com.infumia.t3sl4.util.nbt.api.NBTBase value) {
    }
 

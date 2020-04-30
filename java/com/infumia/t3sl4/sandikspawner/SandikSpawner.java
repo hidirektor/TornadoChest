@@ -17,8 +17,21 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.cactoos.list.ListOf;
+import org.jetbrains.annotations.NotNull;
 
 public final class SandikSpawner extends JavaPlugin {
+
+   private static SandikSpawner instance;
+
+   @NotNull
+   public static SandikSpawner getInstance() {
+      return instance;
+   }
+
+   public void onLoad() {
+      instance = this;
+   }
+
    public void onEnable() {
       if (Bukkit.getPluginManager().getPlugin("Vault") != null) {
          VaultHook hook = new VaultHook();
@@ -31,8 +44,7 @@ public final class SandikSpawner extends JavaPlugin {
             Bukkit.getConsoleSender().sendMessage("  | |  | | | | |  _| | |_| | | | | | | | | | | (_| |");
             Bukkit.getConsoleSender().sendMessage(" |___| |_| |_| |_|    \\__,_| |_| |_| |_| |_|  \\__,_|");
             Bukkit.getConsoleSender().sendMessage("    ");
-            Bukkit.getConsoleSender().sendMessage("§aTornadoChestSpawner: §c1.8.x§7-§c1.15.x");
-            PluginCommand chestSpawnerCommand = this.getCommand("tornadochestsp");
+            PluginCommand chestSpawnerCommand = this.getCommand("sandiksp");
             if (chestSpawnerCommand != null) {
                SpawnerAPI spawnerAPI = new SpawnerAPI(this, vaultWrapper, new YamlOf(this, "chest/menuler", "chesticimenu"), new YamlOf(this, "chest/menuler", "genelayarlarmenu"), new YamlOf(this, "chest/menuler", "ganimetdeposumenu"), new YamlOf(this, "chest/menuler", "sandikayarlarmenu"), new YamlOf(this, "chest/menuler", "yetkililermenu"), new YamlOf(this, "chest", "spawners"), new YamlOf(this, "chest", "users"), new ConfigOptions(new YamlOf(this, "config")), new YamlOf(this, "chest", "placed"));
                this.getServer().getScheduler().runTaskTimer(this, () -> {

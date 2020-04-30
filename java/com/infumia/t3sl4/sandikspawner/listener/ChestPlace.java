@@ -1,5 +1,6 @@
 package com.infumia.t3sl4.sandikspawner.listener;
 
+import com.infumia.t3sl4.util.location.StringOf;
 import io.github.portlek.mcyaml.IYaml;
 import io.github.portlek.nbt.base.ItemStackNBTOf;
 import com.infumia.t3sl4.sandikspawner.SpawnerAPI;
@@ -94,8 +95,6 @@ public final class ChestPlace implements Listener {
               )
       );
       event.getPlayer().sendMessage(spawnerAPI.getLanguage().generalYouPlaceAChestSpawner(chestType.getName()));
-      //final Location blockLocation = new Location(block.getWorld(), block.getX(), block.getY(), block.getZ());
-      //event.getPlayer().sendMessage("Blok X: " + blockLocation.getBlockX());
    }
 
    private boolean check(@NotNull Block block) {

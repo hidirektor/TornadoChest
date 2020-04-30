@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class MethodOf implements RefMethod {
    private static final Logger LOGGER_METHOD_OF = new LoggerOf(new Class[]{MethodOf.class});
-   private static final Logger LOGGER = new LoggerOf(new Class[]{MethodOf.class, MethodExecuted.class});
+   private static final Logger LOGGER = new LoggerOf(new Class[]{MethodOf.class, MethodOf.MethodExecuted.class});
    @NotNull
    private final Method method;
    private final boolean isAccessible;
@@ -21,7 +21,7 @@ public class MethodOf implements RefMethod {
 
    @NotNull
    public RefMethodExecuted of(@NotNull Object object) {
-      return new MethodExecuted(object);
+      return new MethodOf.MethodExecuted(object);
    }
 
    @NotNull

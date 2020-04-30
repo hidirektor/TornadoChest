@@ -37,4 +37,5 @@ KoyuPrizmarin:
     speed: 4
     amount: 1
   item:
-    material: PRISMARINE:2
+    material: PRISMARINE
+    data: 1

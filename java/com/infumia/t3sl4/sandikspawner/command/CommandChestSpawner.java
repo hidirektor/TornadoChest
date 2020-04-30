@@ -63,7 +63,7 @@ public final class CommandChestSpawner implements TabExecutor {
                player.closeInventory();
                return true;
             } else if (arg1.equalsIgnoreCase(this.spawnerAPI.getLanguage().commandReload)) {
-               if (!sender.hasPermission("tornadochestsp.reload")) {
+               if (!sender.hasPermission("sandiksp.reload")) {
                   sender.sendMessage(this.spawnerAPI.getLanguage().errorPermission);
                   return true;
                } else {
@@ -72,7 +72,7 @@ public final class CommandChestSpawner implements TabExecutor {
                   return true;
                }
             } else if (arg1.equalsIgnoreCase(this.spawnerAPI.getLanguage().commandChestSpawnerSettings)) {
-               if (!sender.hasPermission("tornadochestsp.ayarlar")) {
+               if (!sender.hasPermission("sandiksp.ayarlar")) {
                   sender.sendMessage(this.spawnerAPI.getLanguage().errorPermission);
                   return true;
                } else if (!Util.inGameCommand(this.spawnerAPI.getLanguage(), sender)) {
@@ -104,7 +104,7 @@ public final class CommandChestSpawner implements TabExecutor {
                   if (placed != null) {
                      p.closeInventory();
                      amount = (new SumOf(new Mapped<>(ItemStack::getAmount, new Filtered(Objects::nonNull, Util.getStorageContents(placed.chest.getBlockInventory()))))).intValue();
-                     int money = amount * placed.chestType.money();
+                     double money = amount * placed.chestType.money();
                      placed.chest.getBlockInventory().clear();
                      placed.chest.update();
                      this.spawnerAPI.vaultWrapper.addMoney(p, (double)money);
@@ -112,7 +112,7 @@ public final class CommandChestSpawner implements TabExecutor {
                   }
 
                   return true;
-               } else if (!sender.hasPermission("tornadochestsp.dagit")) {
+               } else if (!sender.hasPermission("sandiksp.dagit")) {
                   sender.sendMessage(this.spawnerAPI.getLanguage().errorPermission);
                   return true;
                } else if (!arg1.equalsIgnoreCase(this.spawnerAPI.getLanguage().commandChestSpawnerDistribute)) {
@@ -145,7 +145,7 @@ public final class CommandChestSpawner implements TabExecutor {
                String arg3 = args[2];
                if (args.length != 3) {
                   String arg4 = args[3];
-                  if (!sender.hasPermission("tornadochestsp.ver")) {
+                  if (!sender.hasPermission("sandiksp.ver")) {
                      sender.sendMessage(this.spawnerAPI.getLanguage().errorPermission);
                      return true;
                   } else if (Util.playerNotFound(this.spawnerAPI.getLanguage(), sender, arg2)) {
@@ -171,7 +171,7 @@ public final class CommandChestSpawner implements TabExecutor {
                   }
                } else if (!arg1.equalsIgnoreCase(this.spawnerAPI.getLanguage().commandChestSpawnerDistribute)) {
                   if (arg1.equalsIgnoreCase(this.spawnerAPI.getLanguage().commandChestSpawnerGive)) {
-                     if (!sender.hasPermission("tornadochestsp.ver")) {
+                     if (!sender.hasPermission("sandiksp.ver")) {
                         sender.sendMessage(this.spawnerAPI.getLanguage().errorPermission);
                         return true;
                      }
@@ -201,7 +201,7 @@ public final class CommandChestSpawner implements TabExecutor {
                      Bukkit.getConsoleSender().sendMessage(this.spawnerAPI.getLanguage().commands);
                   }
                   return true;
-               } else if (!sender.hasPermission("tornadochestsp.dagit")) {
+               } else if (!sender.hasPermission("sandiksp.dagit")) {
                   sender.sendMessage(this.spawnerAPI.getLanguage().errorPermission);
                   return true;
                } else {
@@ -233,7 +233,7 @@ public final class CommandChestSpawner implements TabExecutor {
 
    @NotNull
    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, @NotNull String[] args) {
-      if (!sender.hasPermission("tornadochestsp.ver") && !sender.hasPermission("tornadochestsp.dagit") && !sender.hasPermission("tornadochestsp.ayarlar")) {
+      if (!sender.hasPermission("sandiksp.ver") && !sender.hasPermission("sandiksp.dagit") && !sender.hasPermission("sandiksp.ayarlar")) {
          return new ListOf(new String[0]);
       } else if (args.length > 4) {
          return new ListOf(new String[0]);
