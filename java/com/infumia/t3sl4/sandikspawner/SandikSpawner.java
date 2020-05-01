@@ -1,20 +1,16 @@
 package com.infumia.t3sl4.sandikspawner;
 
-import com.infumia.t3sl4.sandikspawner.listener.*;
-import io.github.portlek.inventory.Inventories;
-import io.github.portlek.mcyaml.YamlOf;
+import com.infumia.t3sl4.sandikspawner.chest.placed.ChestPlaced;
 import com.infumia.t3sl4.sandikspawner.command.CommandChestSpawner;
 import com.infumia.t3sl4.sandikspawner.files.ConfigOptions;
 import com.infumia.t3sl4.sandikspawner.hook.VaultHook;
 import com.infumia.t3sl4.sandikspawner.hook.VaultWrapper;
-import com.infumia.t3sl4.sandikspawner.chest.placed.ChestPlaced;
+import com.infumia.t3sl4.sandikspawner.listener.*;
+import io.github.portlek.inventory.Inventories;
+import io.github.portlek.mcyaml.YamlOf;
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.cactoos.list.ListOf;
 import org.jetbrains.annotations.NotNull;

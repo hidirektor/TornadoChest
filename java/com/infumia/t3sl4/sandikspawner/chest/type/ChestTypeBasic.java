@@ -1,7 +1,6 @@
 package com.infumia.t3sl4.sandikspawner.chest.type;
 
 import com.infumia.t3sl4.sandikspawner.SpawnerAPI;
-import com.infumia.t3sl4.sandikspawner.chest.type.ChestType;
 import io.github.portlek.itemstack.item.meta.get.DisplayOf;
 import io.github.portlek.itemstack.item.meta.get.LoreOf;
 import io.github.portlek.itemstack.item.meta.set.SetDisplayOf;
@@ -9,13 +8,14 @@ import io.github.portlek.itemstack.item.meta.set.SetLoreOf;
 import io.github.portlek.itemstack.item.meta.set.SetMetaOf;
 import io.github.portlek.nbt.api.NBTCompound;
 import io.github.portlek.nbt.base.ItemStackNBTOf;
-import java.util.List;
-import java.util.Optional;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.cactoos.list.ListOf;
 import org.cactoos.list.Mapped;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
+import java.util.Optional;
 
 public final class ChestTypeBasic implements ChestType {
    @NotNull

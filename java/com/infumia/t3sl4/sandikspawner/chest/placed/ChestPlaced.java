@@ -1,26 +1,17 @@
 package com.infumia.t3sl4.sandikspawner.chest.placed;
 
 import com.infumia.t3sl4.sandikspawner.SandikSpawner;
+import com.infumia.t3sl4.sandikspawner.SpawnerAPI;
+import com.infumia.t3sl4.sandikspawner.chest.type.ChestType;
 import com.infumia.t3sl4.util.itemstack.util.Colored;
 import com.infumia.t3sl4.util.location.StringOf;
 import io.github.portlek.mcyaml.IYaml;
-import com.infumia.t3sl4.sandikspawner.SpawnerAPI;
-import com.infumia.t3sl4.sandikspawner.chest.type.ChestType;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.Item;
-import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitTask;
@@ -29,6 +20,11 @@ import org.cactoos.list.Mapped;
 import org.cactoos.scalar.SumOf;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 public final class ChestPlaced {
    @NotNull

@@ -1,18 +1,13 @@
 package com.infumia.t3sl4.sandikspawner.listener;
 
-import com.infumia.t3sl4.util.location.StringOf;
-import io.github.portlek.mcyaml.IYaml;
-import io.github.portlek.nbt.base.ItemStackNBTOf;
 import com.infumia.t3sl4.sandikspawner.SpawnerAPI;
-import com.infumia.t3sl4.sandikspawner.mock.MckChestType;
 import com.infumia.t3sl4.sandikspawner.chest.placed.ChestPlaced;
 import com.infumia.t3sl4.sandikspawner.chest.type.ChestType;
+import com.infumia.t3sl4.sandikspawner.mock.MckChestType;
 import com.infumia.t3sl4.sandikspawner.util.Util;
+import io.github.portlek.nbt.base.ItemStackNBTOf;
 import io.github.portlek.versionmatched.Version;
-import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.block.BlockState;
 import org.bukkit.block.Chest;
 import org.bukkit.block.Sign;
 import org.bukkit.block.data.Directional;
@@ -76,22 +71,9 @@ public final class ChestPlace implements Listener {
       }
 
       spawnerAPI.add(
-              new ChestPlaced(
-                      spawnerAPI,
-                      UUID.randomUUID(),
-                      event.getPlayer().getUniqueId(),
-                      chest,
-                      (Sign) signBlock.getState(),
-                      chestType,
-                      0,
-                      0,
-                      new MaxOf(
-                              1,
-                              new ItemStackNBTOf(event.getItemInHand())
-                                      .nbt()
-                                      .getNBTCompound("tag")
-                                      .getInt("chest-spawner-level")
-                      ).intValue()
+              new ChestPlaced(spawnerAPI, UUID.randomUUID(), event.getPlayer().getUniqueId(), chest, (Sign) signBlock.getState(), chestType, 0, 0,
+                      new MaxOf(1,
+                              new ItemStackNBTOf(event.getItemInHand()).nbt().getNBTCompound("tag").getInt("chest-spawner-level")).intValue()
               )
       );
       event.getPlayer().sendMessage(spawnerAPI.getLanguage().generalYouPlaceAChestSpawner(chestType.getName()));

@@ -1,5 +1,10 @@
 package com.infumia.t3sl4.sandikspawner.menu;
 
+import com.infumia.t3sl4.sandikspawner.SpawnerAPI;
+import com.infumia.t3sl4.sandikspawner.chest.type.ChestType;
+import com.infumia.t3sl4.sandikspawner.chest.user.User;
+import com.infumia.t3sl4.util.oututil.anvilapi.anvilgui.AnvilGUI;
+import com.infumia.t3sl4.util.title.base.TitlePlayerOf;
 import io.github.portlek.inventory.Pane;
 import io.github.portlek.inventory.element.BasicElement;
 import io.github.portlek.inventory.event.ElementBasicEvent;
@@ -21,12 +26,6 @@ import io.github.portlek.itemstack.item.meta.set.SetMetaOf;
 import io.github.portlek.itemstack.item.set.SetTypeOf;
 import io.github.portlek.itemstack.util.Colored;
 import io.github.portlek.mcyaml.IYaml;
-import com.infumia.t3sl4.sandikspawner.menu.Menu;
-import com.infumia.t3sl4.sandikspawner.SpawnerAPI;
-import com.infumia.t3sl4.sandikspawner.chest.type.ChestType;
-import com.infumia.t3sl4.sandikspawner.chest.user.User;
-import com.infumia.t3sl4.util.title.base.TitlePlayerOf;
-import com.infumia.t3sl4.util.oututil.anvilapi.anvilgui.AnvilGUI;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
