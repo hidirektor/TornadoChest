@@ -7,6 +7,7 @@ import org.jetbrains.annotations.NotNull;
 public final class Config {
    @NotNull
    public final String language;
+   public final boolean levelDusmesi;
    @NotNull
    public final List<String> sign;
    @NotNull
@@ -24,8 +25,9 @@ public final class Config {
    @NotNull
    public final String no;
 
-   public Config(@NotNull String language, @NotNull List<String> sign, @NotNull String ganimetAnvilAlis, @NotNull String ganimetAnvilSatis, @NotNull String yetkiliAnvil, @NotNull ItemStack chestItem, @NotNull List<String> book, @NotNull String yes, @NotNull String no) {
+   public Config(@NotNull String language, boolean levelDusmesi, @NotNull List<String> sign, @NotNull String ganimetAnvilAlis, @NotNull String ganimetAnvilSatis, @NotNull String yetkiliAnvil, @NotNull ItemStack chestItem, @NotNull List<String> book, @NotNull String yes, @NotNull String no) {
       this.language = language;
+      this.levelDusmesi = levelDusmesi;
       this.sign = sign;
       this.ganimetAnvilAlis = ganimetAnvilAlis;
       this.ganimetAnvilSatis = ganimetAnvilSatis;

@@ -119,6 +119,14 @@ public final class ChestPlaced {
       }
    }
 
+   public void levelDown() {
+      if (this.level != 1 && this.level != 0) {
+         --this.level;
+         this.update(false);
+         this.saveTo(this.spawnerAPI.placedChest);
+      }
+   }
+
    public void update(boolean canDrop) {
       this.updateSign();
       this.task = Bukkit.getScheduler().runTaskTimer(this.spawnerAPI.plugin, () -> {

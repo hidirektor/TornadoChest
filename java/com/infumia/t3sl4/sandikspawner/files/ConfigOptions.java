@@ -27,7 +27,7 @@ public final class ConfigOptions {
       } else {
          this.yaml.create();
          String language = (String)this.yaml.getString("language").orElse("tr");
-
+         boolean levelDusmesi = this.yaml.getBoolean("chest-settings.levelDusmesi");
          List<String> sign = this.yaml.getStringList("chest-spawner.sign");
          String ganimetAnvilAlis = this.c((String)this.yaml.getString("chest-spawner.ganimet-anvil-alis").orElse(""));
          String ganimetAnvilSatis = this.c((String)this.yaml.getString("chest-spawner.ganimet-anvil-satis").orElse(""));
@@ -36,7 +36,7 @@ public final class ConfigOptions {
          List<String> book = (List)(new ColoredList(this.yaml.getStringList("chest-spawner.book"))).value();
          String yes = this.c((String)this.yaml.getString("chest-spawner.clickyes").orElse("chest-spawner.clickyes"));
          String no = this.c((String)this.yaml.getString("chest-spawner.clickno").orElse("chest-spawner.clickno"));
-         this.config = new Config(language, sign, ganimetAnvilAlis, ganimetAnvilSatis, yetkiliAnvil, chestItem, book, yes, no);
+         this.config = new Config(language, levelDusmesi, sign, ganimetAnvilAlis, ganimetAnvilSatis, yetkiliAnvil, chestItem, book, yes, no);
          return this.config;
       }
    }

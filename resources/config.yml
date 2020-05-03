@@ -1,6 +1,9 @@
 # en, tr
 language: 'tr'
 
+chest-settings:
+  levelDusmesi: true
+
 chest-spawner:
   sign:
     - '&4%chest-name%'
