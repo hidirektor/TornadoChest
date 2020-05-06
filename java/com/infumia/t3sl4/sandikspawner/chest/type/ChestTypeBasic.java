@@ -1,13 +1,13 @@
 package com.infumia.t3sl4.sandikspawner.chest.type;
 
 import com.infumia.t3sl4.sandikspawner.SpawnerAPI;
-import io.github.portlek.itemstack.item.meta.get.DisplayOf;
-import io.github.portlek.itemstack.item.meta.get.LoreOf;
-import io.github.portlek.itemstack.item.meta.set.SetDisplayOf;
-import io.github.portlek.itemstack.item.meta.set.SetLoreOf;
-import io.github.portlek.itemstack.item.meta.set.SetMetaOf;
-import io.github.portlek.nbt.api.NBTCompound;
-import io.github.portlek.nbt.base.ItemStackNBTOf;
+import com.infumia.t3sl4.util.itemstack.item.meta.get.DisplayOf;
+import com.infumia.t3sl4.util.itemstack.item.meta.get.LoreOf;
+import com.infumia.t3sl4.util.itemstack.item.meta.set.SetDisplayOf;
+import com.infumia.t3sl4.util.itemstack.item.meta.set.SetLoreOf;
+import com.infumia.t3sl4.util.itemstack.item.meta.set.SetMetaOf;
+import com.infumia.t3sl4.util.nbt.api.NBTCompound;
+import com.infumia.t3sl4.util.nbt.base.ItemStackNBTOf;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.cactoos.list.ListOf;

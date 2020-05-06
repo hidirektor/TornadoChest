@@ -1,6 +1,6 @@
 package com.infumia.t3sl4.sandikspawner.files;
 
-import com.infumia.t3sl4.util.itemstack.util.Colored;
+import io.github.portlek.itemstack.util.Colored;
 import io.github.portlek.mcyaml.IYaml;
 import java.util.List;
 

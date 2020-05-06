@@ -1,5 +1,6 @@
 package com.infumia.t3sl4.sandikspawner.command;
 
+import com.infumia.t3sl4.sandikspawner.SandikSpawner;
 import com.infumia.t3sl4.sandikspawner.SpawnerAPI;
 import com.infumia.t3sl4.sandikspawner.chest.placed.ChestPlaced;
 import com.infumia.t3sl4.sandikspawner.chest.type.ChestType;
@@ -67,6 +68,8 @@ public final class CommandChestSpawner implements TabExecutor {
                   sender.sendMessage(this.spawnerAPI.getLanguage().errorPermission);
                   return true;
                } else {
+                  Bukkit.getPluginManager().disablePlugin(SandikSpawner.getInstance());
+                  Bukkit.getPluginManager().enablePlugin(SandikSpawner.getInstance());
                   this.spawnerAPI.reloadPlugin();
                   sender.sendMessage(this.spawnerAPI.getLanguage().generalReloadComplete);
                   return true;

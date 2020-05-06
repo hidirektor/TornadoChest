@@ -4,7 +4,7 @@ import com.infumia.t3sl4.sandikspawner.SpawnerAPI;
 import com.infumia.t3sl4.sandikspawner.chest.placed.ChestPlaced;
 import com.infumia.t3sl4.sandikspawner.chest.type.ChestType;
 import com.infumia.t3sl4.sandikspawner.mock.MckChestType;
-import io.github.portlek.nbt.base.ItemStackNBTOf;
+import com.infumia.t3sl4.util.nbt.base.ItemStackNBTOf;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;

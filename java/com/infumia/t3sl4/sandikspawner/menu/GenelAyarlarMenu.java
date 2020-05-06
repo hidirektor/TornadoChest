@@ -12,7 +12,7 @@ import io.github.portlek.inventory.requirement.NoClickableDownReq;
 import io.github.portlek.inventory.target.BasicTarget;
 import io.github.portlek.inventory.target.ClickTarget;
 import io.github.portlek.inventory.target.DragTarget;
-import io.github.portlek.itemstack.util.Colored;
+import com.infumia.t3sl4.util.itemstack.util.Colored;
 import io.github.portlek.mcyaml.IYaml;
 import com.infumia.t3sl4.sandikspawner.SpawnerAPI;
 import com.infumia.t3sl4.sandikspawner.chest.user.User;

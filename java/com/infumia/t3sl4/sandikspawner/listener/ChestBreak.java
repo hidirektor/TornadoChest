@@ -3,8 +3,6 @@ package com.infumia.t3sl4.sandikspawner.listener;
 import com.infumia.t3sl4.sandikspawner.SpawnerAPI;
 import com.infumia.t3sl4.sandikspawner.chest.placed.ChestPlaced;
 import com.infumia.t3sl4.sandikspawner.chest.user.User;
-import com.infumia.t3sl4.sandikspawner.files.Config;
-import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.Chest;

@@ -1,6 +1,6 @@
 package com.infumia.t3sl4.sandikspawner.util;
 
-import io.github.portlek.itemstack.item.set.SetAmountOf;
+import com.infumia.t3sl4.util.itemstack.item.set.SetAmountOf;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
