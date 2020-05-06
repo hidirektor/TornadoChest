@@ -31,12 +31,16 @@ public final class SignBreak implements Listener {
             User user = this.spawnerAPI.findUserByUUID(placed.owner);
             event.setCancelled(true);
             if (placed.owner.equals(event.getPlayer().getUniqueId()) || user.yetkililer.containsKey(event.getPlayer().getUniqueId()) || event.getPlayer().isOp()) {
-               if (event.getPlayer().getInventory().firstEmpty() == -1) {
-                  event.getPlayer().sendMessage(this.spawnerAPI.getLanguage().errorYourInventoryIsFull);
+               if (event.getPlayer().hasPermission("sandiksp.kir")) {
+                  if (event.getPlayer().getInventory().firstEmpty() == -1) {
+                     event.getPlayer().sendMessage(this.spawnerAPI.getLanguage().errorYourInventoryIsFull);
+                  } else {
+                     event.getPlayer().getInventory().addItem(new ItemStack[]{placed.chestType.getChestItem(placed.level)});
+                     this.spawnerAPI.remove(placed);
+                     event.getPlayer().sendMessage(this.spawnerAPI.getLanguage().generalYouBreakeAChestSpawner(placed.chestType.getId()));
+                  }
                } else {
-                  event.getPlayer().getInventory().addItem(new ItemStack[]{placed.chestType.getChestItem(placed.level)});
-                  this.spawnerAPI.remove(placed);
-                  event.getPlayer().sendMessage(this.spawnerAPI.getLanguage().generalYouBreakeAChestSpawner(placed.chestType.getId()));
+                  event.getPlayer().sendMessage(this.spawnerAPI.getLanguage().errorPermission);
                }
             }
          }

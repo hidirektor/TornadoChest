@@ -70,13 +70,17 @@ public final class ChestPlace implements Listener {
          return;
       }
 
-      spawnerAPI.add(
-              new ChestPlaced(spawnerAPI, UUID.randomUUID(), event.getPlayer().getUniqueId(), chest, (Sign) signBlock.getState(), chestType, 0, 0,
-                      new MaxOf(1,
-                              new ItemStackNBTOf(event.getItemInHand()).nbt().getNBTCompound("tag").getInt("chest-spawner-level")).intValue()
-              )
-      );
-      event.getPlayer().sendMessage(spawnerAPI.getLanguage().generalYouPlaceAChestSpawner(chestType.getName()));
+      if (event.getPlayer().hasPermission("sandiksp.yerlestir")) {
+         spawnerAPI.add(
+                 new ChestPlaced(spawnerAPI, UUID.randomUUID(), event.getPlayer().getUniqueId(), chest, (Sign) signBlock.getState(), chestType, 0, 0,
+                         new MaxOf(1,
+                                 new ItemStackNBTOf(event.getItemInHand()).nbt().getNBTCompound("tag").getInt("chest-spawner-level")).intValue()
+                 )
+         );
+         event.getPlayer().sendMessage(spawnerAPI.getLanguage().generalYouPlaceAChestSpawner(chestType.getName()));
+      } else {
+         event.getPlayer().sendMessage(this.spawnerAPI.getLanguage().errorPermission);
+      }
    }
 
    private boolean check(@NotNull Block block) {
