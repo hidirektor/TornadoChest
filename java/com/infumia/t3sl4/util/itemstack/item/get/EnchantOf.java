@@ -1,7 +1,6 @@
 package com.infumia.t3sl4.util.itemstack.item.get;
 
 import com.infumia.t3sl4.util.itemstack.ScalarRuntime;
-
 import java.util.Map;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;

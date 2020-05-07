@@ -1,6 +1,6 @@
 package com.infumia.t3sl4.sandikspawner.chest.user;
 
-import io.github.portlek.inventory.Page;
+import com.infumia.t3sl4.util.inventory.Page;
 import io.github.portlek.mcyaml.IYaml;
 import com.infumia.t3sl4.sandikspawner.SpawnerAPI;
 import com.infumia.t3sl4.sandikspawner.chest.placed.ChestPlaced;

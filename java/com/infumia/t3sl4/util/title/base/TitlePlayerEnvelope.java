@@ -14,7 +14,7 @@ import com.infumia.t3sl4.util.title.nms.v1_8_R2.TitlePlayer1_8_R2;
 import com.infumia.t3sl4.util.title.nms.v1_8_R3.TitlePlayer1_8_R3;
 import com.infumia.t3sl4.util.title.nms.v1_9_R1.TitlePlayer1_9_R1;
 import com.infumia.t3sl4.util.title.nms.v1_9_R2.TitlePlayer1_9_R2;
-import io.github.portlek.versionmatched.VersionMatched;
+import com.infumia.t3sl4.util.versionmatched.VersionMatched;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 

@@ -1,6 +1,6 @@
 package com.infumia.t3sl4.util.nbt.base;
 
-import com.infumia.t3sl4.util.itemstack.util.XMaterial;
+import com.cryptomorin.xseries.XMaterial;
 import com.infumia.t3sl4.util.nbt.api.NBTCompound;
 import java.util.function.Supplier;
 import org.bukkit.Location;

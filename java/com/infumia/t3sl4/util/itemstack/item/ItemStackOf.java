@@ -1,5 +1,7 @@
 package com.infumia.t3sl4.util.itemstack.item;
 
+import com.cryptomorin.xseries.XMaterial;
+import com.infumia.t3sl4.util.itemstack.ScalarRuntime;
 import com.infumia.t3sl4.util.itemstack.item.meta.set.SetDisplayOf;
 import com.infumia.t3sl4.util.itemstack.item.meta.set.SetFlagOf;
 import com.infumia.t3sl4.util.itemstack.item.meta.set.SetLoreOf;
@@ -7,9 +9,8 @@ import com.infumia.t3sl4.util.itemstack.item.meta.set.SetMetaOf;
 import com.infumia.t3sl4.util.itemstack.item.set.SetAmountOf;
 import com.infumia.t3sl4.util.itemstack.item.set.SetDataOf;
 import com.infumia.t3sl4.util.itemstack.item.set.SetDurabilityOf;
-import com.infumia.t3sl4.util.itemstack.util.XMaterial;
-import com.infumia.t3sl4.util.itemstack.ScalarRuntime;
 import com.infumia.t3sl4.util.itemstack.item.set.SetTypeOf;
+import java.util.Optional;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -61,6 +62,6 @@ public class ItemStackOf extends ScalarRuntime<ItemStack> {
    }
 
    public ItemStackOf(@NotNull String materialString) {
-      this(XMaterial.matchXMaterial(materialString).parseMaterial());
+      this((Material)Optional.ofNullable(((XMaterial)XMaterial.matchXMaterial(materialString).orElse(XMaterial.AIR)).parseMaterial()).orElse(Material.AIR));
    }
 }

@@ -1,8 +1,7 @@
 package com.infumia.t3sl4.util.itemstack.item.meta.set;
 
-import com.infumia.t3sl4.util.itemstack.item.meta.get.MetaOf;
 import com.infumia.t3sl4.util.itemstack.ScalarRuntime;
-
+import com.infumia.t3sl4.util.itemstack.item.meta.get.MetaOf;
 import java.util.List;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;

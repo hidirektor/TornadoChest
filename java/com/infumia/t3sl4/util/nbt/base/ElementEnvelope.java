@@ -14,7 +14,7 @@ import com.infumia.t3sl4.util.nbt.nms.v1_13_R1.NBTRegistry1_13_R1;
 import com.infumia.t3sl4.util.nbt.nms.v1_13_R2.NBTRegistry1_13_R2;
 import com.infumia.t3sl4.util.nbt.nms.v1_14_R1.NBTRegistry1_14_R1;
 import com.infumia.t3sl4.util.nbt.nms.v1_9_R2.NBTRegistry1_9_R2;
-import io.github.portlek.versionmatched.VersionMatched;
+import com.infumia.t3sl4.util.versionmatched.VersionMatched;
 import org.jetbrains.annotations.NotNull;
 
 public abstract class ElementEnvelope<V, T> implements Element<V, T> {

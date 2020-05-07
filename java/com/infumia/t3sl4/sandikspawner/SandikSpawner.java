@@ -6,7 +6,7 @@ import com.infumia.t3sl4.sandikspawner.files.ConfigOptions;
 import com.infumia.t3sl4.sandikspawner.hook.VaultHook;
 import com.infumia.t3sl4.sandikspawner.hook.VaultWrapper;
 import com.infumia.t3sl4.sandikspawner.listener.*;
-import io.github.portlek.inventory.Inventories;
+import com.infumia.t3sl4.util.inventory.Inventories;
 import io.github.portlek.mcyaml.YamlOf;
 import org.bukkit.Bukkit;
 import org.bukkit.command.PluginCommand;
