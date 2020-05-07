@@ -1,4 +1,4 @@
-# SandikSpawner
+# SandikSpawner -- TornadoChest
 ChestSpawner system for 1.8.x -- 1.115.x minecraft servers.
 
 TornadoChest plugin permissions:
